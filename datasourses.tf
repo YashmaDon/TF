@@ -3,7 +3,7 @@ data "google_compute_instance_group" "node_instance_groups" {
 }
 
 data "google_compute_instance" "nodes" {
-  for_each = toset(data.google_compute_instance_group.node_instance_groups.instances[*])
+  for_each  = toset(data.google_compute_instance_group.node_instance_groups.instances[*])
   self_link = each.key
 }
 
